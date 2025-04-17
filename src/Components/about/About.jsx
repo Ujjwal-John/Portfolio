@@ -1,7 +1,7 @@
 import React from 'react'
 import "./About.css"
 import mvlu from "../../assets/mvlu-logo.jpg"
-import kcml from "../../assets/kcm-Logo.jpg"
+import kcml from "../../assets/Kcm-Logo.jpg"
 
 const About = () => {
     return (
