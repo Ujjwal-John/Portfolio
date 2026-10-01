@@ -1,65 +1,73 @@
-import React from 'react'
-import './About.css'
+import React from "react";
+import "./About.css";
 
-const educationTimeline = [
+const educationItems = [
   {
-    id: 1,
-    school: 'MVLU College',
-    period: '(2021 - 2023)',
-    qualification: 'B.Sc in Information Technology',
-    logo: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=200&q=80',
-    alignment: 'left_container',
-    arrowClass: 'left-container-arrow',
-    alt: 'MVLU College campus building',
+    id: "mvlu",
+    name: "Maharshi Ved Vyas Lalit University",
+    degree: "Bachelor's Degree",
+    description:
+      "Built a strong foundation in software engineering, web development, and problem-solving through academic projects and practical coursework.",
+    logo: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=300&q=80",
+    alt: "University campus building",
   },
   {
-    id: 2,
-    school: 'KCM College',
-    period: '(2018 - 2019)',
-    qualification: '12th with PCM',
-    logo: 'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=200&q=80',
-    alignment: 'right_container',
-    arrowClass: 'right-container-arrow',
-    alt: 'KCM College academic building',
+    id: "kcml",
+    name: "KCML",
+    degree: "Professional Training",
+    description:
+      "Focused on hands-on development practices, modern tooling, and building production-ready applications with clean architecture.",
+    logo: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=300&q=80",
+    alt: "Students collaborating in a learning environment",
   },
-  {
-    id: 3,
-    school: 'KCM School',
-    period: '(2017 - 2018)',
-    qualification: '10th with Science',
-    logo: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=200&q=80',
-    alignment: 'left_container',
-    arrowClass: 'left-container-arrow',
-    alt: 'KCM School classroom building',
-  },
-]
+];
 
 const About = () => {
   return (
-    <section className="container py-5">
-      <div className="row align-items-center g-5">
-        <div className="col-lg-6">
-          <p className="about-kicker">About Me</p>
-          <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">Building products with clean UI and practical engineering</h1>
-          <p className="lead about-copy">
-            Passionate MERN Stack Developer with hands-on experience in building responsive and
-            dynamic web applications. I enjoy turning product ideas into fast, maintainable, and
-            user-friendly interfaces using React, JavaScript, Node.js, and modern frontend
-            patterns.
-          </p>
-          <p className="about-copy-secondary mb-0">
-            I focus on delivering web experiences that are accessible, mobile-first, and easy to
-            scale as product requirements grow.
-          </p>
-        </div>
+    <section id="about" className="about">
+      <div className="about-title">
+        <h1>About Me</h1>
+      </div>
 
-        <div className="col-12 col-lg-6 mx-auto text-center">
-          <div className="timeline" aria-label="Education timeline">
-            {educationTimeline.map((item) => (
-              <div key={item.id} className={`Containertimeline ${item.alignment}`}>
-                <img src={item.logo} alt={item.alt} loading="lazy" />
-                <div className="text-box">
-                  <h2>{item.school}</h2>
-                  <small>{item.period}</small>
-                  <p>{item.qualification}</p>
-                  <span className={item
+      <div className="about-sections">
+        <div className="about-right">
+          <div className="about-para">
+            <p>
+              I am a software developer focused on building responsive,
+              user-friendly, and maintainable web applications. I enjoy turning
+              ideas into products that work reliably in production, not just in
+              demos.
+            </p>
+            <p>
+              My work centers on clean UI implementation, practical
+              problem-solving, and continuous improvement through real project
+              experience. I prefer solutions that are simple to maintain and
+              resilient under change.
+            </p>
+          </div>
+
+          <div className="about-education">
+            {educationItems.map((item) => (
+              <article key={item.id} className="education-card">
+                <img
+                  src={item.logo}
+                  alt={item.alt}
+                  className="education-logo"
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="education-content">
+                  <h2>{item.name}</h2>
+                  <h3>{item.degree}</h3>
+                  <p>{item.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;
